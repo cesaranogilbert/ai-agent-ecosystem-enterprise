@@ -1,0 +1,20 @@
+version: 1.0
+runtime: python3
+commands:
+  build:
+    commands:
+      - echo "Installing dependencies..."
+      - pip install --upgrade pip
+      - pip install -r requirements.txt
+      - echo "Build completed successfully"
+  pre_build:
+    commands:
+      - echo "Setting up environment for AI Agent Ecosystem..."
+      - python -m flask db upgrade || echo "Database migration skipped"
+env:
+  - name: FLASK_APP
+    value: main.py
+  - name: FLASK_ENV
+    value: production
+  - name: PYTHONPATH
+    value: /opt/render/project/src
