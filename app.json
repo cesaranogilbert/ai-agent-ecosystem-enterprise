@@ -1,0 +1,43 @@
+{
+  "name": "AI Agent Ecosystem Enterprise",
+  "description": "Comprehensive AI Agent Platform - 85+ Specialized Agents for Enterprise Automation (.2T Market Opportunity)",
+  "repository": "https://github.com/cesaranogilbert/ai-agent-ecosystem-enterprise",
+  "keywords": ["ai", "agents", "enterprise", "automation", "blockchain", "quantum"],
+  "env": {
+    "FLASK_APP": {
+      "description": "Flask application entry point",
+      "value": "main.py"
+    },
+    "FLASK_ENV": {
+      "description": "Flask environment",
+      "value": "production"
+    },
+    "SECRET_KEY": {
+      "description": "Secret key for Flask sessions",
+      "generator": "secret"
+    },
+    "OPENAI_API_KEY": {
+      "description": "OpenAI API key for AI agent functionality (Get from https://platform.openai.com/api-keys)",
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "description": "Stripe secret key for payment processing (Optional - get from https://stripe.com)",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "standard-1x"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:mini",
+    "heroku-redis:mini"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
